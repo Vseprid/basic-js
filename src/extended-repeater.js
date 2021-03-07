@@ -4,7 +4,7 @@ module.exports = function repeater(str, options) {
   let { separator = '+', additionSeparator = '|', repeatTimes = 0, addition = '', additionRepeatTimes } = options;
 
   let additionToArr = [];
-  if (typeof addition != 'string') addition.toString();
+  if (typeof addition != 'string') addition = addition + '';
   do {
     additionToArr.push(addition);
   } while (additionToArr.length < additionRepeatTimes)
@@ -13,9 +13,9 @@ module.exports = function repeater(str, options) {
   let additionToStr = additionToArr.join(additionSeparator)
 
 
-  if (typeof str != 'string') str.toString()
+  if (typeof str != 'string') str = str + '';
 
-  let strCorrect = str.split('')
+  let strCorrect = str.split('');
   additionToStr = additionToStr.split('');
   strCorrect = strCorrect.concat(additionToStr)
   strCorrect = strCorrect.join('')
